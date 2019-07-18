@@ -1,3 +1,7 @@
-<p>led works!</p>
-<p>{{ index + 1 }} {{ color | piColor: 'rgb' }}</p>
-<div class="box" [style.backgroundColor]="color"></div>
+<p>{{ led?.index + 1 }} {{ led?.color | piColor: 'hex6' }}</p>
+<div
+  class="box"
+  [style.backgroundColor]="led?.color"
+  (click)="handleClick($event)"
+></div>
+<ng-content select="p"></ng-content>

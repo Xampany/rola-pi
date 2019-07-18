@@ -1,0 +1,10 @@
+<table class="table">
+  <tbody>
+    <tr>
+      <td *ngFor="let thing of leds">
+        <pi-led [piLed]="thing" (piLedChange)="updateLed($event)"></pi-led>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pre hidden><code>{{ leds | json }}</code></pre>
