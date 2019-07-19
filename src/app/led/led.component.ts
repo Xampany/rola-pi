@@ -4,7 +4,8 @@ import {
   Input,
   Output,
   EventEmitter,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  ViewEncapsulation
 } from '@angular/core';
 import { Led } from '../model/led';
 
@@ -12,7 +13,8 @@ import { Led } from '../model/led';
   selector: 'pi-led',
   templateUrl: './led.component.html',
   styleUrls: ['./led.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class LedComponent implements OnInit {
   @Input('piLed')

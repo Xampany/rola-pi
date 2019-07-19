@@ -1,0 +1,45 @@
+<!-- Model driven / reactive -->
+<form [formGroup]="form">
+  <div class="field">
+    <label class="label">Label</label>
+    <div class="control">
+      <input class="input" type="text" formControlName="colorCtrl" />
+    </div>
+    <p class="help" *ngIf="form.get('colorCtrl').hasError('required')">
+      Bitte geben Sie was ein!
+    </p>
+  </div>
+</form>
+
+<!-- Template driven -->
+<form #myForm="ngForm" (ngSubmit)="updateColor(myForm.value)">
+  <div class="field">
+    <label class="label">Farbe</label>
+    <div class="control">
+      <input
+        class="input"
+        type="text"
+        required
+        minlength="3"
+        [(ngModel)]="color"
+        name="color"
+        #myColor="ngModel"
+        [ngClass]="{ 'is-danger': myColor.invalid }"
+      />
+    </div>
+    <p class="help" *ngIf="myColor.hasError('required')">
+      Bitte geben Sie was ein!
+    </p>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link" [disabled]="myForm.invalid" type="submit">
+        Submit
+      </button>
+    </div>
+    <div class="control">
+      <button class="button is-text">Cancel</button>
+    </div>
+  </div>
+</form>
+<pre><code>{{ myColor.errors | json }}</code></pre>

@@ -45,4 +45,9 @@ export class LedListComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  flashLeds() {
+    // TODO delegate to service(s)
+    console.log('flash');
+  }
 }

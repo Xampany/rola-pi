@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,10 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestService {
-  private readonly BASE =
-    'https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api';
-
-  constructor(private client: HttpClient) {}
+  constructor(
+    private client: HttpClient,
+    @Inject('BASE_URL') private readonly BASE: string
+  ) {}
 
   readColors(): Observable<string[]> {
     const url = `${this.BASE}/colors`;

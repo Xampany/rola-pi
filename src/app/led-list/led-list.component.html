@@ -2,7 +2,11 @@
   <tbody>
     <tr>
       <td *ngFor="let thing of leds">
-        <pi-led [piLed]="thing" (piLedChange)="updateLed($event)"></pi-led>
+        <pi-led [piLed]="thing" (piLedChange)="updateLed($event)">
+          <p>
+            <a [routerLink]="[thing.index]">Details</a>
+          </p>
+        </pi-led>
       </td>
     </tr>
   </tbody>
